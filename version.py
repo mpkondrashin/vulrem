@@ -1,5 +1,5 @@
 """
-VulRem - Vulnerability Remediator
+VulRem - Vulnerability Remediaton
 (c) 2020 by Mikhail Kondrashin
 Code is distributed under Apache License 2.0 http://www.apache.org/licenses/
 

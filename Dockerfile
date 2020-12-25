@@ -1,4 +1,4 @@
-# VulRem - Vulnerability Remediator
+# VulRem - Vulnerability Remediaton
 # (c) 2020 by Mikhail Kondrashin
 FROM python:3.8
 RUN pip install requests docker-image-py

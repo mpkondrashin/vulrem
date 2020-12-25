@@ -1,40 +1,39 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: VulRem
+  name: vulrem-cron
 spec:
   schedule: "0 1 * * *" # Run once a day at 1 a.m.
   jobTemplate:
     spec:
       template:
         spec:
-          replicas: 1
           restartPolicy: OnFailure
           containers:
-            - name: "VulRem"
+            - name: "vulrem"
               image: "mpkondrashin/vulrem:0.1"
               imagePullPolicy: Always
-          env:
-            - name: DEEPSECURITY_POLICY_ID
-              value: "<Policy ID>"
-            - name: DEEPSECURITY_URL
-              value: "https://<DSM address>:4119/api"
-            - name: SMARTCHECK_SKIP_TLS_VERIFY
-              value: "True"
-            - name: DEEPSECURITY_SKIP_TLS_VERIFY
-              value: "True"
-            - name: SMARTCHECK_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: vulremsecrets
-                  key: SMARTCHECK_USERNAME
-            - name: SMARTCHECK_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: vulremsecrets
-                  key: SMARTCHECK_PASSWORD
-            - name: DEEPSECURITY_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: vulremsecrets
-                  key: DEEPSECURITY_API_KEY
+              env:
+                - name: DEEPSECURITY_POLICY_ID
+                  value: "<Policy ID>"
+                - name: DEEPSECURITY_URL
+                  value: "https://<DSM address>:4119/api"
+                - name: SMARTCHECK_SKIP_TLS_VERIFY
+                  value: "True"
+                - name: DEEPSECURITY_SKIP_TLS_VERIFY
+                  value: "True"
+                - name: SMARTCHECK_USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: vulremsecrets
+                      key: SMARTCHECK_USERNAME
+                - name: SMARTCHECK_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: vulremsecrets
+                      key: SMARTCHECK_PASSWORD
+                - name: DEEPSECURITY_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: vulremsecrets
+                      key: DEEPSECURITY_API_KEY
