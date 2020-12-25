@@ -166,6 +166,8 @@ of container images, but can not be covered by any of
 Preparation step for Deep Security and Smart Check are the same.
 ### Running as separate script
 
+Python 3.x is required.
+
 Install required modules:
 ```shell
 $ pip install requests docker-image-py
@@ -194,7 +196,7 @@ SMARTCHECK_USERNAME=<username>
 SMARTCHECK_PASSWORD=<password
 DEEPSECURITY_URL=https://<DSM address>:4119/api
 DEEPSECURITY_SKIP_TLS_VERIFY=True
-DEEP_SECURITY_API_KEY=<API key>
+DEEPSECURITY_API_KEY=<API key>
 DEEPSECURITY_POLICY_ID=<Policy ID>
 ```
 Run container using following command:
