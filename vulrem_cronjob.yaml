@@ -11,7 +11,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: "vulrem"
-              image: "mpkondrashin/vulrem:0.1"
+              image: "mpkondrashin/vulrem"
               imagePullPolicy: Always
               env:
                 - name: DEEPSECURITY_POLICY_ID

@@ -97,7 +97,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: "vulrem"
-              image: "mpkondrashin/vulrem:0.1"
+              image: "mpkondrashin/vulrem"
               imagePullPolicy: Always
           env:
             - name: DEEPSECURITY_POLICY_ID
@@ -201,10 +201,10 @@ DEEPSECURITY_POLICY_ID=<Policy ID>
 ```
 Run container using following command:
 ```
-$ docker run --env env.list mpkondrashin/vulrem
+$ docker run --env-file env.list mpkondrashin/vulrem
 ```
 or 
 ```
-$ docker run --env env.list vulrem
+$ docker run --env-file env.list vulrem
 ```
-if your have built container from source.
+if your have built container from the source.
