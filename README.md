@@ -63,17 +63,17 @@ though this is less secure.
 
 ### Configure vulrem CronJob
 
-Edit vulrem_secrets.yaml file:
+Edit vulrem_secrets.yaml file (keep quotes around values):
  ```yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: vulremsecrets
+  name: "vulremsecrets"
 type: Opaque
 stringData:
-    SMARTCHECK_USERNAME: "<Name of Smart Check user with auditor role>"
-    SMARTCHECK_PASSWORD: "<Password of this user>"
-    DEEPSECURITY_API_KEY: "<Deep Security API key>"
+    SMARTCHECK_USERNAME: "Name of Smart Check user with auditor role"
+    SMARTCHECK_PASSWORD: "Password of this user"
+    DEEPSECURITY_API_KEY: "Deep Security API key"
 ```
 
 Provide appropriate values for following variables:
@@ -86,7 +86,7 @@ Edit vulrem_cronjob.yaml file:
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: VulRem
+  name: "vulrem-cron"
 spec:
   schedule: "0 1 * * *" # Run once a day at 1 a.m.
   jobTemplate:
@@ -96,7 +96,7 @@ spec:
           replicas: 1
           restartPolicy: OnFailure
           containers:
-            - name: "VulRem"
+            - name: "vulrem"
               image: "mpkondrashin/vulrem:0.1"
               imagePullPolicy: Always
           env:
@@ -143,7 +143,7 @@ $ kubectl apply -f vulrem_cronjob.yaml
 
 To test vulrem run following command:
 ```shell
-$ kubectl create job --from=cronjob/vulrem vulrem-test
+$ kubectl create job --from=cronjob/vulrem-cron vulrem-test
 ```
 
 To check vulrem logs use following command:
