@@ -18,7 +18,7 @@ or in container (see Post Scriptum).
 ### Configure Trend Micro Deep Security
 
 #### Create custom policy
-Open Deep Security Web console and create new policy
+Open Deep Security Web console, and go to **Policies** and create new policy
 or pick existing policy that will be configured
 by vulrem. This policy should be the root policy for
 all servers running containers.
@@ -38,24 +38,25 @@ and press "**New...**" button.
 can be arbitrary
 * Uncheck "Allow Access to Deep Security Manager User Interface"
 * Check "Allow Access o web services API"
-* On "Policy Rights" tab check **Allow Users to: Edit**
-* Check **Selected Policies**
+* On **Policy Rights** tab check **Allow Users to: Edit**
+* Check **Selected Policies** option
 * Pick policy created or chosen on previous step
+* Press **OK** button
 
 **Note**: One can skip creating custom role and use **Full Access** for API key,
 though it is less secure.  
 
 Go to **Administration** > **User Management** > **API Keys**
 and press "**New...**" button.
-* Name new API key as VulRem, though name can be arbitrary
+* Name new API key "VulRem", though name can be arbitrary
 * Choose **Role** created above
 * Click **Next...**
 * Save API key
 
 ### Configure Deep Security Smart Check
 
-Open Web console and go to **Users**. Click **+ CREATE** button.
-Create new user with auditor role.
+Login to Smart Check as **administrator** and go to **Users**. Click **+ CREATE** button.
+Create new user with **Auditor** role.
 
 **Note**: regular administrator account can be used,
 though this is less secure.
