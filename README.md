@@ -101,9 +101,9 @@ spec:
               imagePullPolicy: Always
           env:
             - name: DEEPSECURITY_POLICY_ID
-              value: "<Policy ID>"
+              value: "Policy ID"
             - name: DEEPSECURITY_URL
-              value: "https://<DSM address>:4119/api"
+              value: "https://DSM address:4119/api"
             - name: SMARTCHECK_SKIP_TLS_VERIFY
               value: "True"
             - name: DEEPSECURITY_SKIP_TLS_VERIFY
@@ -138,6 +138,8 @@ Run following command on Kubernetes:
 $ kubectl apply -f vulrem_secrets.yaml 
 $ kubectl apply -f vulrem_cronjob.yaml 
 ```
+
+This is it!
 
 ### Test VulRem
 
