@@ -1,5 +1,5 @@
 # VulRem - Vulnerability Remediaton
-# (c) 2020 by Mikhail Kondrashin
+# (c) 2020 by Mikhail Kondrashin mkondrashin@gmail.com
 FROM python:3.8
 RUN pip install requests docker-image-py
 RUN pip install https://automation.deepsecurity.trendmicro.com/sdk/20_0/v1/dsm-py-sdk.zip

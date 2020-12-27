@@ -1,4 +1,5 @@
 # vulrem — Vulnerability Remediaton
+Version 0.1
 
 [![License](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -157,7 +158,7 @@ $ kubectl logs jobs/vulrem-test
 
 After successful completion of policy configuration,
 vulrem makes two changes to chosen policy:
-* Apropriate Intrusion Prevention module filters are turned on
+* Appropriate Intrusion Prevention module filters are turned on
 * Description is populated with list of CVEs that present in one
 of container images, but can not be covered by any of 
   Deep Security IPS rules
