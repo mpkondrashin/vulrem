@@ -16,8 +16,8 @@ import dsm
 
 
 def get_sc_host():
-    frontend = socket.gethostbyname('proxy')
-    return f"https://{frontend}:443"
+    proxy = socket.gethostbyname('proxy')
+    return f"https://{proxy}:443"
 
 
 def environ(name, default = None):
