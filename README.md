@@ -23,13 +23,16 @@ It is designed to run as CronJob on the same Kubernetes cluster
 as Deep Security Smart Check, though it can run as script
 or in container (see Post Scriptum).
 
+**Note:** VulRem does not initiate registry scans,
+but uses last scan result.
+
 ### Configure Trend Micro Deep Security
 
 #### Create custom policy
 Open Deep Security Web console, and go to **Policies** and create new policy
 or pick existing policy that will be configured
 by VulRem. This policy should be the root policy for
-all servers running containers.
+all servers running containers. 
 
 #### Get policy ID
 To determine this policy ID, right click on it and pick "**Detailes...**" menu item. 
