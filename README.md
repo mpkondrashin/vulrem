@@ -23,8 +23,7 @@ It is designed to run as CronJob on the same Kubernetes cluster
 as Deep Security Smart Check, though it can run as script
 or in container (see Post Scriptum).
 
-**Note:** VulRem does not initiate registry scans,
-but uses last scan result.
+**Note:** VulRem does not initiate registry scans. It uses last scan result.
 
 ### Configure Trend Micro Deep Security
 
