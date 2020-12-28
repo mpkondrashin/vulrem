@@ -1,5 +1,6 @@
 # vulrem — Vulnerability Remediaton
 Version 0.1
+by Mikhail Kondrashin
 
 [![License](https://img.shields.io/badge/License-Apache%202-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -12,7 +13,13 @@ and [CloudOne Workload Security](https://www.trendmicro.com/en_us/business/produ
 VulRem automatically turns on Trend Micro Deep Security IPS filters (called virtual patches)
 for each vulnerability found by Deep Security Smart Check.  
 
-It is designed to run as CronJob on same Kubernetes cluster
+VulRem can be handy in case Smart Check detects a vulnerable component,
+but developers can not update it as it will break their code. In this case
+virtual patching feature of Deep Security can help and mitigate 
+the threat for some time provided availability 
+of appropriate IPS filter.
+
+It is designed to run as CronJob on the same Kubernetes cluster
 as Deep Security Smart Check, though it can run as script
 or in container (see Post Scriptum).
 
@@ -21,7 +28,7 @@ or in container (see Post Scriptum).
 #### Create custom policy
 Open Deep Security Web console, and go to **Policies** and create new policy
 or pick existing policy that will be configured
-by vulrem. This policy should be the root policy for
+by VulRem. This policy should be the root policy for
 all servers running containers.
 
 #### Get policy ID
@@ -77,7 +84,7 @@ stringData:
     DEEPSECURITY_API_KEY: "Deep Security API key"
 ```
 
-Provide appropriate values for following variables:
+Provide appropriate values for the following variables:
 * SMARTCHECK_USERNAME
 * SMARTCHECK_PASSWORD
 * DEEPSECURITY_API_KEY
@@ -126,7 +133,7 @@ spec:
                   key: DEEPSECURITY_API_KEY
 ```
 
-Provide appropriate values for following variables:
+Provide appropriate values for the following variables:
 * schedule
 * DEEPSECURITY_POLICY_ID
 * DEEPSECURITY_URL
@@ -157,14 +164,14 @@ $ kubectl logs jobs/vulrem-test
 ### VulRem in action
 
 After successful completion of policy configuration,
-vulrem makes two changes to chosen policy:
+VulRem makes two changes to chosen policy:
 * Appropriate Intrusion Prevention module filters are turned on
 * Description is populated with list of CVEs that present in one
 of container images, but can not be covered by any of 
   Deep Security IPS rules
   
 ## P.S. Running VulRem not in K8s
-Preparation step for Deep Security and Smart Check are the same.
+Preparation steps for Deep Security and Smart Check are the same.
 ### Running as separate script
 
 Python 3.x is required.
@@ -209,3 +216,4 @@ or
 $ docker run --env-file env.list vulrem
 ```
 if your have built container from the source.
+
