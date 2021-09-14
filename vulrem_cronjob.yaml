@@ -11,6 +11,9 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: "vulrem"
+              securityContext.capabilities.drop: ALL
+              allowPrivilegeEscalation: false
+              securityContext.runAsNonRoot: true
               image: "mpkondrashin/vulrem"
               imagePullPolicy: Always
               env:
