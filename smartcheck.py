@@ -330,6 +330,12 @@ class Smartcheck(_SlightlyImprovedSession):
                 for package in self._list(layer['vulnerabilities'], ListVulnerabilitiesException, 'vulnerabilities'):
                     yield package
 
+    def list_configuration_checklist_profile_rules(self, scan, profileID):
+        for layer in scan['details']['results']:
+            if 'vulnerabilities' in layer:
+                for package in self._list(layer['vulnerabilities'], ListVulnerabilitiesException, 'vulnerabilities'):
+                    yield package
+
     # Scan results have checklist findings identified per-checklist and per-profile within
     # each checklist. This means we need to go through each checklist and profile to find
     # all the results.
